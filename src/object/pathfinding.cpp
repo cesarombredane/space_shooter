@@ -67,13 +67,13 @@ string Pathfinding::pathfinding(vector<vector<int>> map, const int &xStart, cons
 	open_nodes_map.clear();
 	dir_map.clear();
 
-	for (int i = 0; i < map.size(); i++)
+	for (size_t i = 0; i < map.size(); i++)
 	{
 		map_pass.push_back({});
 		closed_nodes_map.push_back({});
 		open_nodes_map.push_back({});
 		dir_map.push_back({});
-		for (int j = 0; j < map[0].size(); j++)
+		for (size_t j = 0; j < map[0].size(); j++)
 		{
 			if (map[i][j] > 1)
 				map_pass[i].push_back(1);
@@ -138,7 +138,7 @@ string Pathfinding::pathfinding(vector<vector<int>> map, const int &xStart, cons
 			xdx = x + dx[i];
 			ydy = y + dy[i];
 
-			if (!(xdx < 0 || xdx > map[0].size() - 1 || ydy < 0 || ydy > map.size() - 1 || map_pass[ydy][xdx] == 1 || closed_nodes_map[ydy][xdx] == 1))
+			if (!(xdx < 0 || xdx > static_cast<int>(map[0].size()) - 1 || ydy < 0 || ydy > static_cast<int>(map.size()) - 1 || map_pass[ydy][xdx] == 1 || closed_nodes_map[ydy][xdx] == 1))
 			{
 				// generate a child node
 

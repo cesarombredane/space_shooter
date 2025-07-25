@@ -160,16 +160,17 @@ int Map::colision(int x, int y)
 	if (y / TILE_SIZE > map.size() || x / TILE_SIZE > map[0].size())
 	{
 		cerr << "erreur argument de get_tile" << endl;
-		system("pause");
+		int res = system("pause");
+		cerr << res << endl;
 	}
 	return map[y / TILE_SIZE][x / TILE_SIZE];
 }
 
 void Map::create_spawner()
 {
-	for (int i = 0; i < map.size(); i++)
+	for (size_t i = 0; i < map.size(); i++)
 	{
-		for (int j = 0; j < map[0].size(); j++)
+		for (size_t j = 0; j < map[0].size(); j++)
 		{
 			if (map[i][j] == SPAWNER)
 			{
@@ -180,11 +181,11 @@ void Map::create_spawner()
 	}
 }
 
-void Map::tick_spawner(RenderWindow &window, Map &mapclass, Camera &camera, Player &player)
+void Map::tick_spawner(RenderWindow &window, Map &mapclass, Player &player)
 {
 	if (enemy_map.size() < 4 && spawn_time <= 0)
 	{
-		for (int i = 0; i < spawner_map.size(); i++)
+		for (size_t i = 0; i < spawner_map.size(); i++)
 		{
 			spawner_map[i].spawn(difficulte, mapclass);
 			Pathfinding pass;
@@ -200,7 +201,7 @@ void Map::tick_spawner(RenderWindow &window, Map &mapclass, Camera &camera, Play
 	draw_enemies(window);
 }
 
-void Map::draw_BG(RenderWindow &window, Player &player, Camera &camera)
+void Map::draw_BG(RenderWindow &window, Camera &camera)
 {
 	if (camera.get_goRight())
 	{
@@ -234,7 +235,7 @@ void Map::load_BG(Player &player)
 
 void Map::draw_enemies(RenderWindow &window)
 {
-	for (int i = 0; i < active_enemy_map.size(); i++)
+	for (size_t i = 0; i < active_enemy_map.size(); i++)
 	{
 		enemy_map[active_enemy_map[i]].rotation_enemy();
 		enemy_map[active_enemy_map[i]].draw_enemy(window);
@@ -245,26 +246,14 @@ void Map::move_enemies(Player &player, Map &mapclass)
 {
 	Pathfinding pass;
 
-	for (int i = 0; i < enemy_map.size(); i++)
+	for (size_t i = 0; i < enemy_map.size(); i++)
 	{
-		if (pathfind_timer == i * 6)
+		if (pathfind_timer == static_cast<int>(i * 6))
 		{
 			string s = pass.pathfinding(map, enemy_map[i].get_pos_enemy().x / TILE_SIZE, enemy_map[i].get_pos_enemy().y / TILE_SIZE,
 																	player.get_posPlayer().x / TILE_SIZE, player.get_posPlayer().y / TILE_SIZE);
 			pathfinder[i] = s;
 		}
-
-		bool top = (colision(enemy_map[i].get_pos_enemy().x + (TILE_SIZE / 2), enemy_map[i].get_pos_enemy().y - (TILE_SIZE / 2)) > COLLISION_BLOCK ||
-								colision(enemy_map[i].get_pos_enemy().x - (TILE_SIZE / 2), enemy_map[i].get_pos_enemy().y - (TILE_SIZE / 2)) > COLLISION_BLOCK);
-
-		bool bot = (colision(enemy_map[i].get_pos_enemy().x + (TILE_SIZE / 2), enemy_map[i].get_pos_enemy().y + (TILE_SIZE / 2)) > COLLISION_BLOCK ||
-								colision(enemy_map[i].get_pos_enemy().x - (TILE_SIZE / 2), enemy_map[i].get_pos_enemy().y + (TILE_SIZE / 2)) > COLLISION_BLOCK);
-
-		bool left = (colision(enemy_map[i].get_pos_enemy().x - (TILE_SIZE / 2), enemy_map[i].get_pos_enemy().y - (TILE_SIZE / 2)) > COLLISION_BLOCK ||
-								 colision(enemy_map[i].get_pos_enemy().x - (TILE_SIZE / 2), enemy_map[i].get_pos_enemy().y + (TILE_SIZE / 2)) > COLLISION_BLOCK);
-
-		bool right = (colision(enemy_map[i].get_pos_enemy().x + (TILE_SIZE / 2), enemy_map[i].get_pos_enemy().y - (TILE_SIZE / 2)) > COLLISION_BLOCK ||
-									colision(enemy_map[i].get_pos_enemy().x + (TILE_SIZE / 2), enemy_map[i].get_pos_enemy().y + (TILE_SIZE / 2)) > COLLISION_BLOCK);
 
 		if (pathfinder[i] != "")
 		{
@@ -290,7 +279,7 @@ void Map::active_enemies(Camera &camera)
 {
 	active_enemy_map.clear();
 
-	for (int i = 0; i < enemy_map.size(); i++)
+	for (size_t i = 0; i < enemy_map.size(); i++)
 	{
 		if (enemy_map[i].get_pos_enemy().x - (TILE_SIZE / 2) < camera.get_pos_camera().x + (WINDOW_WIDTH / 2) &&
 				enemy_map[i].get_pos_enemy().x + (TILE_SIZE / 2) > camera.get_pos_camera().x - (WINDOW_WIDTH / 2) &&
@@ -305,7 +294,7 @@ void Map::active_enemies(Camera &camera)
 
 void Map::test_mort_enemies(int volume)
 {
-	for (int i = 0; i < enemy_map.size(); i++)
+	for (size_t i = 0; i < enemy_map.size(); i++)
 	{
 		if (enemy_map[i].get_vie() <= 0)
 		{

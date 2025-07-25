@@ -2,7 +2,7 @@
 
 Player::Player(Map &map)
 {
-	if (!playerspriteTexture.loadFromFile("src/assets/graphics/Player.png"))
+	if (!playerspriteTexture.loadFromFile("src/assets/graphics/player.png"))
 		cerr << "erreur chargement du player" << endl;
 	else
 		playersprite.setTexture(playerspriteTexture);
@@ -207,7 +207,7 @@ void Player::colision(Map &map, Gui &gui, int volume, Camera &camera)
 	}
 	map.active_enemies(camera);
 	// Enemies
-	for (int i = 0; i < map.get_active_enemy_map().size(); i++)
+	for (size_t i = 0; i < map.get_active_enemy_map().size(); i++)
 	{
 
 		if (!(posPlayer.x + (TILE_SIZE / 2) < map.get_enemy_map()[map.get_active_enemy_map()[i]].get_pos_enemy().x - (TILE_SIZE / 2) ||
@@ -314,7 +314,7 @@ void Player::player_fire(Input &input, RenderWindow &window, Map &map, Camera &c
 		cadencePlayer--;
 	}
 
-	for (int i = 0; i < chargeurPlayer.size(); i++)
+	for (size_t i = 0; i < chargeurPlayer.size(); i++)
 	{
 		chargeurPlayer[i].draw_bullet(window);
 		chargeurPlayer[i].fire_bullet();

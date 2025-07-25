@@ -35,7 +35,7 @@ void Gui::draw_gui(RenderWindow &window, Camera &camera, Map &map, Player &playe
 	window.draw(vie);
 	window.draw(nbPoint);
 
-	for (int i = 0; i < vector_degas.size(); i++)
+	for (size_t i = 0; i < vector_degas.size(); i++)
 	{
 		Text t;
 		t.setFont(font);

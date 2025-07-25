@@ -48,13 +48,20 @@ void Input::gestion_input(RenderWindow &window)
 		case Event::Closed: // gestion de crash
 			window.close();
 			break;
+
 		case Event::KeyPressed: // gestion des la pression des touches
 			switch (event.key.code)
 			{
 			case Keyboard::Escape:
 				window.close();
 				break;
+
+			default:
+				break;
 			}
+			break;
+
+		default:
 			break;
 		}
 	}

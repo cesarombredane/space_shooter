@@ -1,6 +1,6 @@
 #include "../include/camera.h"
 
-Camera::Camera(Map &map, Player &player)
+Camera::Camera(Player &player)
 {
 	posCamera.x = player.get_posPlayer().x;
 	posCamera.y = player.get_posPlayer().y;

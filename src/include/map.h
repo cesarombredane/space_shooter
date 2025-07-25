@@ -67,12 +67,12 @@ public:
 	void load_map(int);
 	void draw_map(RenderWindow &, Camera &camera);
 	void load_BG(Player &player);
-	void draw_BG(RenderWindow &, Player &, Camera &);
+	void draw_BG(RenderWindow &, Camera &);
 
 	int colision(int, int);
 
 	void create_spawner();
-	void tick_spawner(RenderWindow &, Map &, Camera &, Player &);
+	void tick_spawner(RenderWindow &, Map &, Player &);
 };
 
 #endif // MAP_H

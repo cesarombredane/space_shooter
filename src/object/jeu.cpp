@@ -18,7 +18,7 @@ void Jeu::load_jeu(int lvl, int m, int vol)
 	map.push_back(Map(difficulte));
 	map[0].load_map(carte);
 	player.push_back(Player(map[0]));
-	camera.push_back(Camera(map[0], player[0]));
+	camera.push_back(Camera(player[0]));
 	map[0].load_BG(player[0]);
 	gui[0].load_gui();
 }
@@ -30,7 +30,7 @@ int Jeu::open(RenderWindow &window)
 		window.clear();
 
 		input[0].gestion_input(window);
-		map[0].draw_BG(window, player[0], camera[0]);
+		map[0].draw_BG(window, camera[0]);
 		map[0].draw_map(window, camera[0]);
 		player[0].move_input(input[0]);
 		player[0].colision(map[0], gui[0], volume, camera[0]);
@@ -38,7 +38,7 @@ int Jeu::open(RenderWindow &window)
 		player[0].player_fire(input[0], window, map[0], camera[0], gui[0], volume);
 		player[0].rotation_player(input[0]);
 		player[0].draw_player(window);
-		map[0].tick_spawner(window, map[0], camera[0], player[0]);
+		map[0].tick_spawner(window, map[0], player[0]);
 		map[0].move_enemies(player[0], map[0]);
 		window.setView(camera[0].set_view(player[0], map[0]));
 		map[0].test_mort_enemies(volume);

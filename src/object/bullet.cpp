@@ -57,7 +57,7 @@ bool Bullet::colision_bullet(Map &map, Camera &camera, Gui &gui, int volume)
 			posBullet.y > camera.get_pos_camera().y + (WINDOW_WIDTH / 2))
 		return true;
 
-	for (int i = 0; i < map.get_active_enemy_map().size(); i++)
+	for (size_t i = 0; i < map.get_active_enemy_map().size(); i++)
 	{
 		if (posBullet.x < map.get_enemy_map()[map.get_active_enemy_map()[i]].get_pos_enemy().x + (TILE_SIZE / 2) &&
 				posBullet.x > map.get_enemy_map()[map.get_active_enemy_map()[i]].get_pos_enemy().x - (TILE_SIZE / 2) &&

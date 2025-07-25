@@ -29,9 +29,9 @@ using namespace sf;
 
 class Gui;
 
-const int WINDOW_WIDTH = 1280;
-const int WINDOW_HEIGTH = 720;
-const int TILE_SIZE = 64;
+const size_t WINDOW_WIDTH = 1280;
+const size_t WINDOW_HEIGTH = 720;
+const size_t TILE_SIZE = 64;
 
 class Jeu
 {

@@ -18,7 +18,7 @@ private:
 	bool goRight, goLeft, goUp, goDown;
 
 public:
-	Camera(Map &, Player &);
+	Camera(Player &);
 
 	bool get_goRight();
 	bool get_goLeft();
