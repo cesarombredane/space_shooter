@@ -1,4 +1,4 @@
-#include "Enemy.h"
+#include "../include/enemy.h"
 
 Sniper::Sniper(int vie, int vitesse, int dega, int t) : Enemy(vie, vitesse, dega, t)
 {

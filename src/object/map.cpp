@@ -1,4 +1,4 @@
-#include "Map.h"
+#include "../include/map.h"
 
 Map::Map(int lvl)
 {

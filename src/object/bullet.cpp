@@ -1,4 +1,4 @@
-#include "Bullet.h"
+#include "../include/bullet.h"
 
 Bullet::Bullet(int dega)
 {

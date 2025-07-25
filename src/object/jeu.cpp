@@ -1,12 +1,14 @@
-#include "Jeu.h"
+#include "jeu.h"
 
-Jeu::Jeu() {
+Jeu::Jeu()
+{
 	volume = 50;
 	carte = 1;
 	difficulte = 1;
 }
 
-void Jeu::load_jeu(int lvl, int m, int vol) {
+void Jeu::load_jeu(int lvl, int m, int vol)
+{
 	difficulte = lvl;
 	carte = m;
 	volume = vol;
@@ -21,8 +23,10 @@ void Jeu::load_jeu(int lvl, int m, int vol) {
 	gui[0].load_gui();
 }
 
-int Jeu::open(RenderWindow& window) {
-	while (window.isOpen()) {
+int Jeu::open(RenderWindow &window)
+{
+	while (window.isOpen())
+	{
 		window.clear();
 
 		input[0].gestion_input(window);
@@ -40,13 +44,15 @@ int Jeu::open(RenderWindow& window) {
 		map[0].test_mort_enemies(volume);
 		gui[0].draw_gui(window, camera[0], map[0], player[0]);
 
-		if (player[0].test_mort(volume)) {
+		if (player[0].test_mort(volume))
+		{
 			player[0].stop_sound_speed();
 			reset_jeu();
 			window.setView(View(Vector2f(WINDOW_WIDTH / 2, WINDOW_HEIGTH / 2), Vector2f(WINDOW_WIDTH, WINDOW_HEIGTH)));
 			return 5;
 		}
-		if (input[0].get_btnB()) {
+		if (input[0].get_btnB())
+		{
 			player[0].stop_sound_speed();
 			window.setView(View(Vector2f(WINDOW_WIDTH / 2, WINDOW_HEIGTH / 2), Vector2f(WINDOW_WIDTH, WINDOW_HEIGTH)));
 			return 4;
@@ -57,7 +63,8 @@ int Jeu::open(RenderWindow& window) {
 	return 0;
 }
 
-void Jeu::reset_jeu() {
+void Jeu::reset_jeu()
+{
 	gui.clear();
 	input.clear();
 	camera.clear();

@@ -4,14 +4,15 @@
 
 // INCLUDE
 #include <cstdlib>
-#include "Jeu.h"
+#include "jeu.h"
 
 class Sniper;
 class Kamikaze;
 class Enemy;
 class Map;
 
-class Spawner {
+class Spawner
+{
 private:
 	Vector2f posSpawner;
 

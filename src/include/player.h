@@ -3,7 +3,7 @@
 #ifdef PLAYER_H
 
 // INCLUDE
-#include "Jeu.h"
+#include "jeu.h"
 #include <math.h>
 
 class Map;
@@ -12,7 +12,8 @@ class Bullet;
 class Input;
 class Gui;
 
-class Player {
+class Player
+{
 private:
 	const int SPEED_PLAYER = 8;
 	const int CADENCE = 10;

@@ -3,11 +3,12 @@
 #ifdef ENEMY_H
 
 // INCLUDE
-#include "Jeu.h"
+#include "jeu.h"
 
 class Bullet;
 
-class Enemy{
+class Enemy
+{
 protected:
 	Sprite enemy;
 	Texture enemyTexture;
@@ -46,7 +47,8 @@ public:
 	void move_enemy(string s);
 };
 
-class Sniper : public Enemy {
+class Sniper : public Enemy
+{
 private:
 	vector<Bullet> chargeurSniper;
 	int cadenceSniper;
@@ -55,9 +57,9 @@ public:
 	Sniper(int, int, int, int);
 };
 
-class Kamikaze : public Enemy {
+class Kamikaze : public Enemy
+{
 private:
-
 public:
 	Kamikaze(int, int, int, int);
 };

@@ -1,4 +1,4 @@
-#include "Gui.h"
+#include "../include/gui.h"
 
 Gui::Gui()
 {

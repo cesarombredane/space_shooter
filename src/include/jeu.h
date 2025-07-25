@@ -3,7 +3,7 @@
 #ifdef JEU_H
 
 #include <SFML/Graphics.hpp>
-#include<SFML/Audio.hpp>
+#include <SFML/Audio.hpp>
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -15,15 +15,15 @@ using namespace std;
 using namespace sf;
 
 // INCLUDES
-#include "Input.h"
-#include "Map.h"
-#include "Player.h"
-#include "Camera.h"
-#include "Bullet.h"
-#include "Enemy.h"
-#include "Spawner.h"
-#include "Gui.h"
-#include "Pathfinding.h"
+#include "input.h"
+#include "map.h"
+#include "player.h"
+#include "camera.h"
+#include "bullet.h"
+#include "enemy.h"
+#include "spawner.h"
+#include "gui.h"
+#include "pathfinding.h"
 
 #define PI 3.14159265
 
@@ -33,7 +33,8 @@ const int WINDOW_WIDTH = 1280;
 const int WINDOW_HEIGTH = 720;
 const int TILE_SIZE = 64;
 
-class Jeu {
+class Jeu
+{
 private:
 	int carte;
 	int difficulte;
@@ -49,7 +50,7 @@ public:
 	Jeu();
 
 	void load_jeu(int, int, int);
-	int open(RenderWindow&);
+	int open(RenderWindow &);
 	void reset_jeu();
 };
 

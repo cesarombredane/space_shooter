@@ -2,7 +2,7 @@
 #define Gui_H
 #ifdef Gui_H
 
-#include "Jeu.h"
+#include "jeu.h"
 
 class Gui
 {

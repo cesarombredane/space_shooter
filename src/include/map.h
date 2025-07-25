@@ -3,7 +3,7 @@
 #ifdef MAP_H
 
 // INCLUDE
-#include "Jeu.h"
+#include "jeu.h"
 #include <sstream>
 #include <string>
 #include <fstream>
@@ -13,7 +13,8 @@ class Player;
 class Spawner;
 class Enemy;
 
-class Map {
+class Map
+{
 private:
 	const int COLLISION_BLOCK = 1;
 	const int SPAWNER = 2;
@@ -67,9 +68,9 @@ public:
 	void draw_map(RenderWindow &, Camera &camera);
 	void load_BG(Player &player);
 	void draw_BG(RenderWindow &, Player &, Camera &);
-	
+
 	int colision(int, int);
-	
+
 	void create_spawner();
 	void tick_spawner(RenderWindow &, Map &, Camera &, Player &);
 };

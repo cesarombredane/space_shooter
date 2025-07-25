@@ -4,14 +4,15 @@
 
 // INCLUDE
 #include <math.h>
-#include "Jeu.h"
+#include "jeu.h"
 
-class Jeu;	
+class Jeu;
 class Map;
 class Camera;
 class Gui;
 
-class Bullet {
+class Bullet
+{
 private:
 	Texture bulletSpriteTexture;
 	Sprite bulletSprite;

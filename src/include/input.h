@@ -3,9 +3,10 @@
 #ifdef INPUT_H
 
 // INCLUDE
-#include "Jeu.h"
+#include "jeu.h"
 
-class Input {
+class Input
+{
 private:
 	Vector2f directionInput;
 	bool btnA;

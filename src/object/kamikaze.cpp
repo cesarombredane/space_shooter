@@ -1,4 +1,4 @@
-#include "Enemy.h"
+#include "../include/enemy.h"
 
 Kamikaze::Kamikaze(int vie, int vitesse, int dega, int t) : Enemy(vie, vitesse, dega, t)
 {

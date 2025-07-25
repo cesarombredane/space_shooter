@@ -1,4 +1,4 @@
-#include "Player.h"
+#include "../include/player.h"
 
 Player::Player(Map &map)
 {

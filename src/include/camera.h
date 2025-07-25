@@ -3,12 +3,13 @@
 #ifdef CAMERA_H
 
 // INCLUDE
-#include "Jeu.h"
+#include "jeu.h"
 
 class Player;
 class Map;
 
-class Camera {
+class Camera
+{
 private:
 	const int FREEPLACE_X = 200;
 	const int FREEPLACE_Y = 100;
