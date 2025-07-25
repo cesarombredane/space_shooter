@@ -24,21 +24,6 @@ bool Input::get_btnB()
 void Input::gestion_input(RenderWindow &window)
 {
 	btnA = btnB = false;
-
-	if (Joystick::isConnected(0))
-	{
-		directionInput.x = Joystick::getAxisPosition(0, Joystick::X);
-		directionInput.y = Joystick::getAxisPosition(0, Joystick::Y);
-		if (Joystick::isButtonPressed(0, 0))
-		{
-			btnA = true;
-		}
-		if (Joystick::isButtonPressed(0, 1))
-		{
-			btnB = true;
-		}
-	}
-
 	Event event;
 
 	while (window.pollEvent(event))
@@ -52,8 +37,68 @@ void Input::gestion_input(RenderWindow &window)
 		case Event::KeyPressed: // gestion des la pression des touches
 			switch (event.key.code)
 			{
+			case Keyboard::A:
+				directionInput.x = -100;
+				break;
+
+			case Keyboard::D:
+				directionInput.x = 100;
+				break;
+
+			case Keyboard::W:
+				directionInput.y = -100;
+				break;
+
+			case Keyboard::S:
+				directionInput.y = 100;
+				break;
+
+			case Keyboard::Space:
+				btnA = true;
+				break;
+
+			case Keyboard::LShift:
+				btnB = true;
+				break;
+
 			case Keyboard::Escape:
 				window.close();
+				break;
+
+			default:
+				break;
+			}
+			break;
+
+		case Event::KeyReleased: // gestion des la relachement des touches
+			switch (event.key.code)
+			{
+			case Keyboard::A:
+				if (directionInput.x < 0)
+					directionInput.x = 0;
+				break;
+
+			case Keyboard::D:
+				if (directionInput.x > 0)
+					directionInput.x = 0;
+				break;
+
+			case Keyboard::W:
+				if (directionInput.y < 0)
+					directionInput.y = 0;
+				break;
+
+			case Keyboard::S:
+				if (directionInput.y > 0)
+					directionInput.y = 0;
+				break;
+
+			case Keyboard::Space:
+				btnA = false;
+				break;
+
+			case Keyboard::LShift:
+				btnB = false;
 				break;
 
 			default:
