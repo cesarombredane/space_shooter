@@ -12,7 +12,7 @@ void Gui::load_gui()
 	contourVie.setSize(Vector2f(220, 60));
 	contourVie.setFillColor(Color(0, 0, 0));
 
-	if (!font.loadFromFile("assets/beon.ttf"))
+	if (!font.loadFromFile("src/assets/beon.ttf"))
 	{
 		cerr << "erreur chargement des font" << endl;
 	}

@@ -2,7 +2,7 @@
 
 Bullet::Bullet(int dega)
 {
-	if (!bulletSpriteTexture.loadFromFile("assets/graphics/bullet.png"))
+	if (!bulletSpriteTexture.loadFromFile("src/assets/graphics/bullet.png"))
 	{
 		cerr << "erreur chargement des bullet" << endl;
 	}

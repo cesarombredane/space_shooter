@@ -2,7 +2,7 @@
 
 Enemy::Enemy(int vie, int vitesse, int damage, int t)
 {
-	if (!bufferHit_enemy.loadFromFile("assets/sounds/impact_enemy.wav"))
+	if (!bufferHit_enemy.loadFromFile("src/assets/sounds/impact_enemy.wav"))
 	{
 		cerr << "erreur de chargement sound 'death_enemy'" << endl;
 	}

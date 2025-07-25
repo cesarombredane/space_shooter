@@ -2,17 +2,17 @@
 
 Map::Map(int lvl)
 {
-	if (!tileSetTexture.loadFromFile("assets/graphics/tileset.png"))
+	if (!tileSetTexture.loadFromFile("src/assets/graphics/tileset.png"))
 		cerr << "erreur chargement de la tileset" << endl;
 	else
 		tileSet.setTexture(tileSetTexture);
 
-	if (!backgroundTexture.loadFromFile("assets/graphics/background.png"))
+	if (!backgroundTexture.loadFromFile("src/assets/graphics/background.png"))
 		cerr << "erreur chargement du BG" << endl;
 	else
 		background.setTexture(backgroundTexture);
 
-	if (!buffer_death_enemy.loadFromFile("assets/sounds/death_enemy.wav"))
+	if (!buffer_death_enemy.loadFromFile("src/assets/sounds/death_enemy.wav"))
 	{
 		cerr << "erreur de chargement sound 'death_enemy'" << endl;
 	}
@@ -66,13 +66,13 @@ void Map::load_map(int lvl)
 	switch (lvl)
 	{
 	case 1:
-		maptxt.open("assets/maps/map1.txt");
+		maptxt.open("src/assets/maps/map1.txt");
 		break;
 	case 2:
-		maptxt.open("assets/maps/map2.txt");
+		maptxt.open("src/assets/maps/map2.txt");
 		break;
 	case 3:
-		maptxt.open("assets/maps/map3.txt");
+		maptxt.open("src/assets/maps/map3.txt");
 		break;
 	default:
 		break;

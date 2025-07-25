@@ -2,24 +2,24 @@
 
 Player::Player(Map &map)
 {
-	if (!playerspriteTexture.loadFromFile("assets/graphics/Player.png"))
+	if (!playerspriteTexture.loadFromFile("src/assets/graphics/Player.png"))
 		cerr << "erreur chargement du player" << endl;
 	else
 		playersprite.setTexture(playerspriteTexture);
 
-	if (!bufferPiou.loadFromFile("assets/sounds/piou.wav"))
+	if (!bufferPiou.loadFromFile("src/assets/sounds/piou.wav"))
 	{
 		cerr << "erreur de chargement sound 'piou'" << endl;
 	}
-	if (!bufferSpeed.loadFromFile("assets/sounds/speed.wav"))
+	if (!bufferSpeed.loadFromFile("src/assets/sounds/speed.wav"))
 	{
 		cerr << "erreur de chargement sound 'speed'" << endl;
 	}
-	if (!bufferDeath.loadFromFile("assets/sounds/death.wav"))
+	if (!bufferDeath.loadFromFile("src/assets/sounds/death.wav"))
 	{
 		cerr << "erreur de chargement sound 'death'" << endl;
 	}
-	if (!bufferHit.loadFromFile("assets/sounds/impact_player.wav"))
+	if (!bufferHit.loadFromFile("src/assets/sounds/impact_player.wav"))
 	{
 		cerr << "erreur de chargement sound 'death'" << endl;
 	}
