@@ -1,14 +1,14 @@
 #pragma once
-#define GUI_H
-#ifdef GUI_H
+#define Gui_H
+#ifdef Gui_H
 
 #include "Jeu.h"
 
-
-
-class Gui {
+class Gui
+{
 private:
-	struct dega {
+	struct dega
+	{
 		Vector2f posDega;
 		int degaDega;
 		int tmpDega;
@@ -24,7 +24,7 @@ public:
 	Gui();
 
 	void load_gui();
-	void draw_gui(RenderWindow &, Camera&, Map &, Player &);
+	void draw_gui(RenderWindow &, Camera &, Map &, Player &);
 
 	void update_score(Map &);
 	void update_vie(Player &player);
@@ -32,4 +32,4 @@ public:
 	void decay_dega(int);
 };
 
-#endif // GUI_H
+#endif // Gui_H

@@ -1,7 +1,8 @@
 #include "Jeu.h"
 
-int main() {
-	RenderWindow window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGTH), "projet tutoré");
+int main()
+{
+	RenderWindow window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGTH), "Space Shooter");
 	window.setFramerateLimit(60);
 	window.setVerticalSyncEnabled(true);
 
